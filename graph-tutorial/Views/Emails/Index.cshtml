@@ -1,0 +1,33 @@
+﻿<!--
+Copyright (c) Microsoft Corporation. All rights reserved.
+Licensed under the MIT license.
+-->
+
+@model  IEnumerable<Microsoft.Graph.Message>
+
+@{
+    ViewBag.Current = "Emails";
+}
+
+<h1>Mail Box</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">From Email Id</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Message</th>
+            <th scope="col">Is Read</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.From.EmailAddress.Address</td>
+                <td>@item.Subject</td> 
+                <td>@item.BodyPreview</td>
+                <td>@item.IsRead</td> 
+            </tr>
+        }
+    </tbody>
+</table>
