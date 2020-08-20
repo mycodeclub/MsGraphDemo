@@ -40,6 +40,7 @@ namespace graph_tutorial
                     Scope = $"openid email profile offline_access {graphScopes}",
                     RedirectUri = redirectUri,
                     PostLogoutRedirectUri = redirectUri,
+                //    ResponseType = OpenIdConnectResponseType.Code,// Microsoft.Graph.ResponseType.None,
                     TokenValidationParameters = new TokenValidationParameters
                     {
                         // For demo purposes only, see below
@@ -60,7 +61,7 @@ namespace graph_tutorial
                         //  }
                         //}
                     },
-               
+
                     Notifications = new OpenIdConnectAuthenticationNotifications
                     {
                         AuthenticationFailed = OnAuthenticationFailedAsync,
